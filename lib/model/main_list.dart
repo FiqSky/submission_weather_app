@@ -7,6 +7,7 @@ class MainListModel {
   String extraWind;
   String extraHumidity;
   String extraPrecipitation;
+  String imageAsset;
 
   MainListModel({
     required this.country,
@@ -17,6 +18,7 @@ class MainListModel {
     required this.extraWind,
     required this.extraHumidity,
     required this.extraPrecipitation,
+    required this.imageAsset,
   });
 }
 
@@ -30,6 +32,7 @@ var mainListModel = [
     extraWind: '10',
     extraHumidity: '89',
     extraPrecipitation: '2',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Singapore',
@@ -40,6 +43,7 @@ var mainListModel = [
     extraWind: '13',
     extraHumidity: '74',
     extraPrecipitation: '4',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Malaysia',
@@ -50,6 +54,7 @@ var mainListModel = [
     extraWind: '0',
     extraHumidity: '78',
     extraPrecipitation: '14',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Vietnam',
@@ -60,6 +65,7 @@ var mainListModel = [
     extraWind: '3',
     extraHumidity: '90',
     extraPrecipitation: '9',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Myanmar',
@@ -70,6 +76,7 @@ var mainListModel = [
     extraWind: '10',
     extraHumidity: '89',
     extraPrecipitation: '2',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Cambodia',
@@ -80,6 +87,7 @@ var mainListModel = [
     extraWind: '10',
     extraHumidity: '79',
     extraPrecipitation: '2',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Philippines',
@@ -90,6 +98,7 @@ var mainListModel = [
     extraWind: '1',
     extraHumidity: '81',
     extraPrecipitation: '2',
+    imageAsset: 'images/sunny.png',
   ),
   MainListModel(
     country: 'Thailand',
@@ -100,5 +109,6 @@ var mainListModel = [
     extraWind: '11',
     extraHumidity: '85',
     extraPrecipitation: '0',
+    imageAsset: 'images/sunny.png',
   ),
 ];

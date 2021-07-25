@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:submission_weather_app/model/main_list.dart';
 
 class Weather extends StatelessWidget{
-  final MainListModel _mainListModel;
+  final MainListModel list;
 
-  Weather({required this._mainListModel});
+  Weather({required this.list});
 
   final _cityDetails = Center(
     child: Column(

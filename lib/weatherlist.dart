@@ -14,7 +14,7 @@ class MainScreen extends StatelessWidget{
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return MainList();
+          return const MainList();
         },
       ),
     );
@@ -22,6 +22,8 @@ class MainScreen extends StatelessWidget{
 }
 
 class MainList extends StatelessWidget{
+  const MainList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -30,7 +32,7 @@ class MainList extends StatelessWidget{
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Weather(_mainListModel: list);
+              return Weather(list: list);
             }));
           },
           child: Card(
@@ -39,7 +41,7 @@ class MainList extends StatelessWidget{
               children: <Widget>[
                 Expanded(
                   flex: 1,
-                  child: Image.asset(place.imageAsset),
+                  child: Image.asset(list.imageAsset),
                 ),
                 Expanded(
                   flex: 2,
@@ -49,13 +51,13 @@ class MainList extends StatelessWidget{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          place.name,
-                          style: TextStyle(fontSize: 16.0),
+                          list.country,
+                          style: const TextStyle(fontSize: 16.0),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(place.location),
+                        Text(list.averageWeather),
                       ],
                     ),
                   ),
