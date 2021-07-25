@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:submission_weather_app/weatherlist.dart';
 import 'package:submission_weather_app/model/main_list.dart';
 
 class Weather extends StatelessWidget{
@@ -9,16 +10,16 @@ class Weather extends StatelessWidget{
   final _cityDetails = Center(
     child: Column(
       children: <Widget>[
-        const Text("Indonesia",
-          style: TextStyle(
+        Text(list.country,
+          style: const TextStyle(
             fontSize: 36.0,
             color: Colors.white,
             fontWeight: FontWeight.w300,
           ),
         ),
         const SizedBox(height: 10.0,),
-        const Text("Today",
-          style: TextStyle(
+        Text(list.day,
+          style: const TextStyle(
               fontSize: 18.0,
               color: Colors.white,
               fontWeight: FontWeight.w300
@@ -29,7 +30,7 @@ class Weather extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
-              Text("Noon",
+              Text(list.timeDays,
                 style: TextStyle(
                     fontSize: 18.0,
                     color: Colors.white,
@@ -135,9 +136,7 @@ class Weather extends StatelessWidget{
         elevation: 0.0,
         backgroundColor: Colors.blue,
       ),
-      body: _weatherData(),
-      drawer: const Drawer(
-      ),
+      body: _weatherData()
     );
   }
 
