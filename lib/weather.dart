@@ -113,9 +113,9 @@ class Weather extends StatelessWidget{
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                getItem(Icons.ac_unit, list.extraWind, "km/hr"),
+                getItem(Icons.grain, list.extraWind, "km/hr"),
                 getItem(Icons.ac_unit, list.extraHumidity, "%"),
-                getItem(Icons.ac_unit, list.extraPrecipitation, "%"),
+                getItem(Icons.drag_indicator, list.extraPrecipitation, "%"),
               ],
             ),
           ],
