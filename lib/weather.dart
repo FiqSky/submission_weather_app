@@ -1,84 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:submission_weather_app/weatherlist.dart';
+import 'package:flutter/widgets.dart';
 import 'package:submission_weather_app/model/main_list.dart';
 
 class Weather extends StatelessWidget{
   final MainListModel list;
 
-  Weather({required this.list});
+  const Weather({Key? key, required this.list}) : super(key: key);
 
-  final _cityDetails = Center(
-    child: Column(
-      children: <Widget>[
-        Text(list.country,
-          style: const TextStyle(
-            fontSize: 36.0,
-            color: Colors.white,
-            fontWeight: FontWeight.w300,
-          ),
-        ),
-        const SizedBox(height: 10.0,),
-        Text(list.day,
-          style: const TextStyle(
-              fontSize: 18.0,
-              color: Colors.white,
-              fontWeight: FontWeight.w300
-          ),
-        ),
-        const SizedBox(height: 6.0,),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              Text(list.timeDays,
-                style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300
-                ),
-              ),
-              Icon(Icons.keyboard_arrow_down,
-                color: Colors.white,
-                size: 18.0,)
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
-
-  //second part; temperature details
-  final _tempDetails = Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      const Icon(
-        Icons.wb_sunny,
-        size: 74.0,
-        color: Colors.white,
-      ),
-      const SizedBox(width: 20.0,),
-      Column(
-        children: const <Widget>[
-          Text("28°C",
-            style: TextStyle(
-                fontSize: 54.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w200
-            ),
-          ),
-          Text("Mostly Sunny",
-            style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w300
-            ),
-          )
-        ],
-      )
-    ],
-  );
-
-  //utility function to lay UI for each item on part three
   static getItem(IconData iconData, int value, String measure){
     return Column(
       children: <Widget>[
@@ -101,33 +30,6 @@ class Weather extends StatelessWidget{
     );
   }
 
-  //part three; container for extra weather details
-  final _extraDetails = Row(
-    mainAxisSize: MainAxisSize.max,
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: <Widget>[
-      getItem(Icons.ac_unit, 5, "km/hr"),
-      getItem(Icons.ac_unit, 3, "%"),
-      getItem(Icons.ac_unit, 20, "%"),
-    ],
-  );
-
-
-  //Weather details container widget
-  _weatherData(){
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          _cityDetails,
-          _tempDetails,
-          _extraDetails,
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,8 +38,91 @@ class Weather extends StatelessWidget{
         elevation: 0.0,
         backgroundColor: Colors.blue,
       ),
-      body: _weatherData()
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Center(
+              child: Column(
+                children: <Widget>[
+                  Text(list.country,
+                    style: const TextStyle(
+                      fontSize: 36.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  const SizedBox(height: 10.0,),
+                  Text(list.day,
+                    style: const TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300
+                    ),
+                  ),
+                  const SizedBox(height: 6.0,),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(list.timeDays,
+                          style: const TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w300
+                          ),
+                        ),
+                        const Icon(Icons.keyboard_arrow_down,
+                          color: Colors.white,
+                          size: 18.0,)
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Icon(
+                  Icons.wb_sunny,
+                  size: 74.0,
+                  color: Colors.white,
+                ),
+                const SizedBox(width: 20.0,),
+                Column(
+                  children: <Widget>[
+                    Text(list.temperature,
+                      style: const TextStyle(
+                          fontSize: 54.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w200
+                      ),
+                    ),
+                    Text(list.averageWeather,
+                      style: const TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w300
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                getItem(Icons.ac_unit, list.extraWind, "km/hr"),
+                getItem(Icons.ac_unit, list.extraHumidity, "%"),
+                getItem(Icons.ac_unit, list.extraPrecipitation, "%"),
+              ],
+            ),
+          ],
+        ),
+      )
     );
   }
-
 }
