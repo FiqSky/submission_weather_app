@@ -2,7 +2,7 @@
     package="com.fiqsky.submissionweatherapp.submission_weather_app">
    <application
         android:label="submission_weather_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

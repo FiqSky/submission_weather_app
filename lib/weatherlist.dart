@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:submission_weather_app/model/main_list.dart';
 import 'package:submission_weather_app/weather.dart';
@@ -41,7 +42,7 @@ class MainList extends StatelessWidget{
               children: <Widget>[
                 Expanded(
                   flex: 1,
-                  child: Image.asset(list.imageAsset),
+                  child: Image.asset(list.imageAsset,height: 80.0,),
                 ),
                 Expanded(
                   flex: 2,
@@ -52,7 +53,7 @@ class MainList extends StatelessWidget{
                       children: <Widget>[
                         Text(
                           list.country,
-                          style: const TextStyle(fontSize: 16.0),
+                          style: const TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(
                           height: 10,

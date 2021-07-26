@@ -37,6 +37,7 @@ class Weather extends StatelessWidget{
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.blue,
+        actions: const <Widget>[Bookmark()],
       ),
       body: Center(
         child: Column(
@@ -72,10 +73,7 @@ class Weather extends StatelessWidget{
                               color: Colors.white,
                               fontWeight: FontWeight.w300
                           ),
-                        ),
-                        const Icon(Icons.keyboard_arrow_down,
-                          color: Colors.white,
-                          size: 18.0,)
+                        )
                       ],
                     ),
                   ),
@@ -123,6 +121,32 @@ class Weather extends StatelessWidget{
           ],
         ),
       )
+    );
+  }
+}
+
+class Bookmark extends StatefulWidget {
+  const Bookmark({Key? key}) : super(key: key);
+
+  @override
+  _BookmarkState createState() => _BookmarkState();
+}
+
+class _BookmarkState extends State<Bookmark> {
+  bool isBookmark = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        isBookmark ? Icons.bookmark_outlined : Icons.bookmark_outline_sharp,
+        color: Colors.pink,
+      ),
+      onPressed: () {
+        setState(() {
+          isBookmark = !isBookmark;
+        });
+      },
     );
   }
 }
